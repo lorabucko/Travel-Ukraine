@@ -1,0 +1,449 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  background: var(--background);
+  border-bottom: var(--border-primary);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+  height: 71px;
+}
+
+.navGroup {
+  display: none;
+}
+
+/* ======================
+   COMMON NAV
+====================== */
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navLink {
+  padding: 8px 0;
+
+  font-weight: 500;
+  font-size: 15px;
+
+  color: var(--text-primary);
+
+  transition: color 0.2s ease;
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  color: var(--button-primary);
+}
+
+/* ======================
+   GUEST
+====================== */
+
+.authActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.signInBtn,
+.signUpBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  white-space: nowrap;
+
+  height: 32px;
+  padding: 0 10px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+
+  border-radius: 6px;
+
+  border: var(--border-primary);
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.signInBtn {
+  color: var(--text-primary);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.signInBtn:hover,
+.signInBtn:focus-visible {
+  background: var(--button-secondary-hover);
+}
+
+.signUpBtn {
+  color: var(--text-secondary);
+  background: var(--button-primary);
+
+  border-color: var(--button-primary);
+}
+
+.signUpBtn:hover,
+.signUpBtn:focus-visible {
+  background: var(--button-secondary-active);
+  border-color: var(--button-secondary-active);
+}
+
+/* ======================
+   AUTHORIZED USER
+====================== */
+
+.authorizedActions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.shareLocationBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 32px;
+  padding: 0 10px;
+
+  white-space: nowrap;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+
+  color: #fff;
+  background-color: var(--button-primary);
+
+  border-radius: 6px;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.shareLocationBtn:hover,
+.shareLocationBtn:focus-visible {
+  background-color: var(--button-secondary-active);
+}
+
+.shareLocationBtn:active {
+  transform: translateY(1px);
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  min-width: 0;
+
+  color: var(--text-third);
+}
+
+.avatar,
+.avatarFallback {
+  width: 32px;
+  height: 32px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+}
+
+.avatar {
+  object-fit: cover;
+}
+
+.avatarFallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text-secondary);
+  background-color: var(--button-secondary-active);
+}
+
+.userName {
+  max-width: 90px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.logoutBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  padding: 0;
+
+  color: var(--text-third);
+  background: transparent;
+
+  border: none;
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.logoutBtn:hover,
+.logoutBtn:focus-visible {
+  color: var(--button-primary);
+  background-color: var(--button-secondary-hover);
+}
+
+/* ======================
+   TABLET ACTIONS + BURGER
+====================== */
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.tabletActions {
+  display: none;
+  align-items: center;
+  gap: 16px;
+}
+
+.burger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  margin: 0;
+  padding: 0;
+
+  color: var(--text-primary);
+  background: rgba(0, 0, 0, 0.05);
+
+  border: var(--border-primary);
+  border-radius: 6px;
+
+  cursor: pointer;
+  flex-shrink: 0;
+
+  transition: background-color 0.2s ease;
+}
+
+.burger:hover,
+.burger:focus-visible {
+  background: var(--button-secondary-hover);
+}
+
+/* ======================
+   MOBILE / TABLET MENU
+   (on top of the page below the header row, 72px = header height)
+====================== */
+
+.mobileMenu {
+  position: fixed;
+  top: 72px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  overflow-y: auto;
+
+  padding: 24px 0 92px;
+
+  background: var(--background);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.2s ease,
+    visibility 0s linear 0.2s;
+}
+
+.mobileMenuOpen {
+  opacity: 1;
+  visibility: visible;
+
+  transition: opacity 0.2s ease;
+}
+
+.mobileMenuInner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 100%;
+}
+
+.mobileNavList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 32px;
+}
+
+.mobileNavLink {
+  display: block;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+
+  color: var(--text-primary);
+
+  transition: color 0.2s ease;
+}
+
+.mobileNavLink:hover,
+.mobileNavLink:focus-visible {
+  color: var(--button-primary);
+}
+
+.mobileActions {
+  display: flex;
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+.mobileActions .signInBtn,
+.mobileActions .signUpBtn,
+.mobileActions .shareLocationBtn {
+  width: 100%;
+}
+
+.mobileUserRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* ======================
+   TABLET
+====================== */
+
+@media screen and (min-width: 768px) {
+  .tabletActions {
+    display: flex;
+  }
+
+  .mobileOnly {
+    display: none;
+  }
+}
+
+/* ======================
+   DESKTOP 1440
+====================== */
+
+@media screen and (min-width: 1440px) {
+  .inner {
+    height: 88px;
+  }
+
+  .navGroup {
+    display: flex;
+    align-items: center;
+
+    gap: 40px;
+  }
+
+  .controls,
+  .mobileMenu {
+    display: none;
+  }
+
+  .navList {
+    gap: 28px;
+  }
+
+  .navLink {
+    font-size: 16px;
+  }
+
+  .authorizedActions {
+    gap: 14px;
+  }
+
+  .shareLocationBtn {
+    height: auto;
+    min-height: 40px;
+
+    padding: 9px 16px;
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .userInfo {
+    gap: 6px;
+  }
+
+  .userName {
+    max-width: 120px;
+
+    font-size: 14px;
+  }
+
+  .logoutBtn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .signInBtn,
+  .signUpBtn {
+    height: auto;
+    padding: 12px 24px;
+
+    font-size: 15px;
+    font-weight: 600;
+    line-height: normal;
+
+    border-radius: 100px;
+  }
+
+  .signInBtn {
+    background: transparent;
+  }
+}
